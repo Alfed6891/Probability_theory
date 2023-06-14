@@ -69,3 +69,15 @@ print(f)
 # F_onewayResult(statistic=5.500053450812596, pvaЮlue=0.010482206918698693)
 # Вывод: выявлены статистически значимые различия, гипотеза о влиянии 
 # вида спорта на средний рост спортсменов верна.
+
+from statsmodels.stats.multicomp import pairwise_tukeyhsd
+import pandas as pd
+
+df = pd.DataFrame({'score':[173, 175, 180, 178, 177, 185, 183, 182,
+                            177, 179, 180, 188, 177, 172, 171, 184, 180, 
+                            172, 173, 169, 177, 166, 180, 178, 177, 172, 166, 170],
+                    'group': np.repeat(['Футболисты', 'хокеисты', 'штангисты'], repeats=([8, 9, 11]))})
+tukey = pairwise_tukeyhsd(endog=df['score'],
+                          groups=df['group'],
+                          alpha=0.05)
+print(tukey)
