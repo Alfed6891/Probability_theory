@@ -81,3 +81,6 @@ tukey = pairwise_tukeyhsd(endog=df['score'],
                           groups=df['group'],
                           alpha=0.05)
 print(tukey)
+
+# Вывод: выявлены статистически значимые различия в группах фтболисты-штангисты 
+# и хокеисты-штангисты
